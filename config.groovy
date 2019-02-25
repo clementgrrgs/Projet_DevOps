@@ -1,10 +1,13 @@
-job('groovy-job') {
+job('JobV1') {
     scm {
-        git('https://github.com/clementgrrgs/ESTIAM-DevOpTP3.git')
+        git('https://github.com/clementgrrgs/ESTIAM-DevOpTP3.git','V1')
     }
     triggers {
-        scm('H/5 * * * *')
+        githubPush()
     }
-    steps {       
+    steps {
+	 dockerBuildAndPublish {
+            repositoryName('clementgrrgs/ESTIAM-DevOpTP3')
+	 }       
     }
 }
