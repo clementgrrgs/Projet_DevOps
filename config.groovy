@@ -6,6 +6,7 @@ job('JobV1') {
         githubPush()
     }
     steps {
+	 docker(docker-compose up)
 	 dockerBuildAndPublish {
             repositoryName('clementgrrgs/ESTIAM-DevOpTP3')
 	 }       
